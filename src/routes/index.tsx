@@ -188,8 +188,8 @@ function Landing() {
     >
       <style>{`
         .bi-container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-        .bi-section { padding: 64px 0; }
-        @media (min-width: 768px) { .bi-section { padding: 88px 0; } }
+        .bi-section { padding: 36px 0; }
+        @media (min-width: 768px) { .bi-section { padding: 52px 0; } }
         .bi-h1 { font-size: 32px; line-height: 1.2; font-weight: 700; color: ${TEXT_PRIMARY}; margin: 16px 0; text-align: center; }
         @media (min-width: 768px) { .bi-h1 { font-size: 42px; } }
         .bi-h2 { font-size: 22px; font-weight: 600; color: ${TEXT_PRIMARY}; text-align: center; margin: 0 0 24px; }
@@ -220,14 +220,12 @@ function Landing() {
           .bi-hero-mobile-mockup { display: none; }
         }
 
-        .bi-bono-card { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; }
-        .bi-bono-img { width: 80px; height: 100px; border-radius: 8px; object-fit: cover; flex-shrink: 0; }
-        .bi-bono-body { width: 100%; }
-        .bi-bono-card .bi-value { display: inline-block; margin-top: 6px; }
+        .bi-bono-card { display: flex; flex-direction: row; align-items: center; text-align: left; gap: 16px; }
+        .bi-bono-img { width: 110px; height: 138px; border-radius: 8px; object-fit: cover; flex-shrink: 0; }
+        .bi-bono-body { flex: 1; min-width: 0; }
+        .bi-bono-card .bi-value { margin-left: auto; padding-left: 12px; flex-shrink: 0; }
         @media (min-width: 768px) {
-          .bi-bono-card { flex-direction: row; align-items: center; text-align: left; }
-          .bi-bono-body { flex: 1; min-width: 0; }
-          .bi-bono-card .bi-value { margin-top: 0; margin-left: auto; padding-left: 12px; }
+          .bi-bono-img { width: 130px; height: 162px; }
         }
 
         .bi-recibes-grid { display: flex; flex-direction: column; gap: 32px; align-items: center; }
