@@ -90,37 +90,57 @@ const faqs = [
   },
 ];
 
+const HERO_MOCKUP = "https://placehold.co/300x400/6C4FBF/EDE9FF?text=Brújula+Interior";
+const BIG_MOCKUP = "https://placehold.co/280x360/6C4FBF/EDE9FF?text=Brújula+Interior";
+
 const valueItems = [
   {
-    icon: "📘",
+    img: "https://placehold.co/80x100/6C4FBF/EDE9FF?text=Guía",
+    imgClass: "guia-principal-img",
+    alt: "Portada de la Guía Brújula Interior",
     name: "Guía Brújula Interior",
     desc: "Tu guía principal de autodescubrimiento emocional paso a paso",
     value: "$14.97",
   },
   {
-    icon: "🎁",
+    img: "https://placehold.co/80x100/5B21B6/EDE9FF?text=Bono+1",
+    imgClass: "bono-1-img",
+    alt: "Portada del Bono 1: Diario de los 21 días",
     name: "BONO 1: Diario de los 21 días",
     desc: "21 prompts diarios de autorreflexión para ver patrones que nunca habías notado",
     value: "$5",
   },
   {
-    icon: "🎁",
+    img: "https://placehold.co/80x100/4C1D95/EDE9FF?text=Bono+2",
+    imgClass: "bono-2-img",
+    alt: "Portada del Bono 2: Mapa de mis patrones",
     name: "BONO 2: Mapa de mis patrones",
     desc: "Checklist visual para identificar exactamente qué patrones emocionales se repiten en tu vida",
     value: "$5",
   },
   {
-    icon: "🎁",
+    img: "https://placehold.co/80x100/7C3AED/EDE9FF?text=Bono+3",
+    imgClass: "bono-3-img",
+    alt: "Portada del Bono 3: El Diálogo Interno",
     name: "BONO 3: El Diálogo Interno",
     desc: "Las 10 frases que tu mente repite que te bloquean y cómo reemplazarlas",
     value: "$5",
   },
   {
-    icon: "🎁",
+    img: "https://placehold.co/80x100/8B5CF6/EDE9FF?text=Bono+4",
+    imgClass: "bono-4-img",
+    alt: "Portada del Bono 4: Tu Primera Semana",
     name: "BONO 4: Tu Primera Semana",
     desc: "Checklist de 7 días con una acción concreta por día para empezar tu proceso",
     value: "$4.97",
   },
+];
+
+const stackBonos = [
+  { src: "https://placehold.co/200x260/5B21B6/EDE9FF?text=Bono+1", alt: "Bono 1", rotate: 2 },
+  { src: "https://placehold.co/200x260/4C1D95/EDE9FF?text=Bono+2", alt: "Bono 2", rotate: -2 },
+  { src: "https://placehold.co/200x260/7C3AED/EDE9FF?text=Bono+3", alt: "Bono 3", rotate: 1 },
+  { src: "https://placehold.co/200x260/8B5CF6/EDE9FF?text=Bono+4", alt: "Bono 4", rotate: -1 },
 ];
 
 const forYouItems = [
