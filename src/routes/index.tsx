@@ -90,37 +90,57 @@ const faqs = [
   },
 ];
 
+const HERO_MOCKUP = "https://placehold.co/300x400/6C4FBF/EDE9FF?text=Brújula+Interior";
+const BIG_MOCKUP = "https://placehold.co/280x360/6C4FBF/EDE9FF?text=Brújula+Interior";
+
 const valueItems = [
   {
-    icon: "📘",
+    img: "https://placehold.co/80x100/6C4FBF/EDE9FF?text=Guía",
+    imgClass: "guia-principal-img",
+    alt: "Portada de la Guía Brújula Interior",
     name: "Guía Brújula Interior",
     desc: "Tu guía principal de autodescubrimiento emocional paso a paso",
     value: "$14.97",
   },
   {
-    icon: "🎁",
+    img: "https://placehold.co/80x100/5B21B6/EDE9FF?text=Bono+1",
+    imgClass: "bono-1-img",
+    alt: "Portada del Bono 1: Diario de los 21 días",
     name: "BONO 1: Diario de los 21 días",
     desc: "21 prompts diarios de autorreflexión para ver patrones que nunca habías notado",
     value: "$5",
   },
   {
-    icon: "🎁",
+    img: "https://placehold.co/80x100/4C1D95/EDE9FF?text=Bono+2",
+    imgClass: "bono-2-img",
+    alt: "Portada del Bono 2: Mapa de mis patrones",
     name: "BONO 2: Mapa de mis patrones",
     desc: "Checklist visual para identificar exactamente qué patrones emocionales se repiten en tu vida",
     value: "$5",
   },
   {
-    icon: "🎁",
+    img: "https://placehold.co/80x100/7C3AED/EDE9FF?text=Bono+3",
+    imgClass: "bono-3-img",
+    alt: "Portada del Bono 3: El Diálogo Interno",
     name: "BONO 3: El Diálogo Interno",
     desc: "Las 10 frases que tu mente repite que te bloquean y cómo reemplazarlas",
     value: "$5",
   },
   {
-    icon: "🎁",
+    img: "https://placehold.co/80x100/8B5CF6/EDE9FF?text=Bono+4",
+    imgClass: "bono-4-img",
+    alt: "Portada del Bono 4: Tu Primera Semana",
     name: "BONO 4: Tu Primera Semana",
     desc: "Checklist de 7 días con una acción concreta por día para empezar tu proceso",
     value: "$4.97",
   },
+];
+
+const stackBonos = [
+  { src: "https://placehold.co/200x260/5B21B6/EDE9FF?text=Bono+1", alt: "Bono 1", rotate: 2 },
+  { src: "https://placehold.co/200x260/4C1D95/EDE9FF?text=Bono+2", alt: "Bono 2", rotate: -2 },
+  { src: "https://placehold.co/200x260/7C3AED/EDE9FF?text=Bono+3", alt: "Bono 3", rotate: 1 },
+  { src: "https://placehold.co/200x260/8B5CF6/EDE9FF?text=Bono+4", alt: "Bono 4", rotate: -1 },
 ];
 
 const forYouItems = [
@@ -185,38 +205,91 @@ function Landing() {
         .bi-faq-btn { width: 100%; text-align: left; background: #fff; border: 1px solid ${BORDER_PURPLE_SOFT}; border-radius: 12px; padding: 18px 20px; font-size: 16px; font-weight: 600; color: ${TEXT_PRIMARY}; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; font-family: inherit; }
         .bi-faq-btn:hover { border-color: ${PURPLE}; }
         .bi-faq-answer { padding: 0 20px 18px; font-size: 15px; color: ${TEXT_SECONDARY}; }
+
+        .bi-hero-grid { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px; }
+        .bi-hero-left { display: flex; flex-direction: column; align-items: center; }
+        .bi-hero-right { display: none; justify-content: center; align-items: center; }
+        .mockup-principal { width: 100%; max-width: 280px; height: auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(108,79,191,0.18); display: block; }
+        .bi-hero-mobile-mockup { display: block; margin: 8px auto 16px; }
+        @media (min-width: 768px) {
+          .bi-hero-grid { display: grid; grid-template-columns: 60% 40%; align-items: center; text-align: left; gap: 32px; }
+          .bi-hero-left { align-items: flex-start; text-align: left; }
+          .bi-hero-left .bi-h1 { text-align: left; }
+          .bi-hero-right { display: flex; }
+          .mockup-principal { max-width: 320px; }
+          .bi-hero-mobile-mockup { display: none; }
+        }
+
+        .bi-bono-card { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; }
+        .bi-bono-img { width: 80px; height: 100px; border-radius: 8px; object-fit: cover; flex-shrink: 0; }
+        .bi-bono-body { width: 100%; }
+        .bi-bono-card .bi-value { display: inline-block; margin-top: 6px; }
+        @media (min-width: 768px) {
+          .bi-bono-card { flex-direction: row; align-items: center; text-align: left; }
+          .bi-bono-body { flex: 1; min-width: 0; }
+          .bi-bono-card .bi-value { margin-top: 0; margin-left: auto; padding-left: 12px; }
+        }
+
+        .bi-recibes-grid { display: flex; flex-direction: column; gap: 32px; align-items: center; }
+        .bi-stack-bonos { position: relative; width: 240px; height: 300px; margin: 0 auto; }
+        .bi-stack-bonos img { position: absolute; top: 50%; left: 50%; width: 180px; height: 234px; margin-left: -90px; margin-top: -117px; border-radius: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); object-fit: cover; }
+        @media (min-width: 768px) {
+          .bi-recibes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+          .bi-stack-bonos { width: 280px; height: 340px; }
+          .bi-stack-bonos img { width: 200px; height: 260px; margin-left: -100px; margin-top: -130px; }
+        }
       `}</style>
 
       {/* SECCIÓN 1 — Hero */}
       <section style={{ backgroundColor: "#fff" }} className="bi-section">
-        <div className="bi-container" style={{ textAlign: "center", maxWidth: 720 }}>
-          <span
-            style={{
-              display: "inline-block",
-              backgroundColor: PURPLE_BADGE_BG,
-              color: PURPLE,
-              fontSize: 13,
-              fontWeight: 500,
-              padding: "6px 14px",
-              borderRadius: 20,
-            }}
-          >
-            Método Brújula Interior
-          </span>
-          <h1 className="bi-h1">¿Sientes que te perdiste a ti misma en el camino?</h1>
-          <p
-            style={{
-              fontSize: 18,
-              color: TEXT_SECONDARY,
-              maxWidth: 520,
-              margin: "0 auto 32px",
-            }}
-          >
-            Brújula Interior es el proceso personalizado que te ayuda a entender tus patrones
-            emocionales, soltar lo que ya no te sirve y encontrar el camino de regreso a ti misma.
-          </p>
-          <CtaButton large>Quiero mi guía por $9.97 →</CtaButton>
-          <TrustLine />
+        <div className="bi-container">
+          <div className="bi-hero-grid">
+            <div className="bi-hero-left">
+              <span
+                style={{
+                  display: "inline-block",
+                  backgroundColor: PURPLE_BADGE_BG,
+                  color: PURPLE,
+                  fontSize: 13,
+                  fontWeight: 500,
+                  padding: "6px 14px",
+                  borderRadius: 20,
+                }}
+              >
+                Método Brújula Interior
+              </span>
+              <h1 className="bi-h1">¿Sientes que te perdiste a ti misma en el camino?</h1>
+              <p
+                style={{
+                  fontSize: 18,
+                  color: TEXT_SECONDARY,
+                  maxWidth: 520,
+                  margin: "0 0 16px",
+                }}
+              >
+                Brújula Interior es el proceso personalizado que te ayuda a entender tus patrones
+                emocionales, soltar lo que ya no te sirve y encontrar el camino de regreso a ti misma.
+              </p>
+              <img
+                src={HERO_MOCKUP}
+                alt="Mockup de la Guía Brújula Interior"
+                className="mockup-principal bi-hero-mobile-mockup"
+                id="mockup-principal-hero-mobile"
+              />
+              <div>
+                <CtaButton large>Quiero mi guía por $9.97 →</CtaButton>
+                <TrustLine />
+              </div>
+            </div>
+            <div className="bi-hero-right">
+              <img
+                src={HERO_MOCKUP}
+                alt="Mockup de la Guía Brújula Interior"
+                className="mockup-principal"
+                id="mockup-principal-hero"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -302,16 +375,31 @@ function Landing() {
                   borderRadius: 12,
                   padding: "16px 20px",
                 }}
-                className="bi-card-row"
+                className="bi-bono-card"
               >
-                <span className="bi-icon">{item.icon}</span>
-                <div style={{ flex: 1, minWidth: 0 }}>
+                <img
+                  src={item.img}
+                  alt={item.alt}
+                  className={`bi-bono-img ${item.imgClass}`}
+                  loading="lazy"
+                />
+                <div className="bi-bono-body">
                   <div style={{ fontWeight: 700, fontSize: 15 }}>{item.name}</div>
                   <div style={{ fontSize: 14, color: TEXT_SECONDARY, marginTop: 2 }}>
                     {item.desc}
                   </div>
                 </div>
-                <span className="bi-value">{item.value}</span>
+                <span
+                  style={{
+                    fontSize: 14,
+                    color: TEXT_SECONDARY,
+                    textDecoration: "line-through",
+                    flexShrink: 0,
+                  }}
+                  className="bi-value"
+                >
+                  {item.value}
+                </span>
               </div>
             ))}
           </div>
@@ -507,6 +595,51 @@ function Landing() {
             <p style={{ fontSize: 14, color: "#16A34A", fontWeight: 500, margin: 0 }}>
               El riesgo es nuestro, no tuyo. Tú solo tienes que empezar.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* SECCIÓN 8.5 — Lo que recibes (mockup completo) */}
+      <section style={{ backgroundColor: PURPLE_BADGE_BG, padding: "48px 24px" }}>
+        <div className="bi-container" style={{ maxWidth: 980 }}>
+          <h2 className="bi-h2">Todo esto es tuyo hoy por solo $9.97</h2>
+          <div className="bi-recibes-grid" style={{ marginTop: 32 }}>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <img
+                src={BIG_MOCKUP}
+                alt="Mockup grande de la Guía Brújula Interior"
+                id="mockup-principal-grande"
+                className="mockup-principal"
+                style={{ maxWidth: 280 }}
+              />
+            </div>
+            <div className="bi-stack-bonos" id="stack-bonos">
+              {stackBonos.map((b, i) => (
+                <img
+                  key={i}
+                  src={b.src}
+                  alt={`Mockup del ${b.alt}`}
+                  className={`bono-stack-${i + 1}-img`}
+                  style={{ transform: `rotate(${b.rotate}deg)`, zIndex: i + 1 }}
+                  loading="lazy"
+                />
+              ))}
+            </div>
+          </div>
+          <p
+            style={{
+              textAlign: "center",
+              fontWeight: 700,
+              fontSize: 18,
+              color: PURPLE,
+              margin: "32px 0 20px",
+            }}
+          >
+            Valor total: $34.97 — tú pagas solo $9.97
+          </p>
+          <div style={{ textAlign: "center" }}>
+            <CtaButton large>Quiero todo esto por $9.97 →</CtaButton>
+            <TrustLine />
           </div>
         </div>
       </section>
