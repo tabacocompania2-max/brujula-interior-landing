@@ -30,7 +30,8 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-const CHECKOUT_URL = "https://pay.hotmart.com/REEMPLAZAR";
+const CHECKOUT_URL = "https://pay.hotmart.com/J105261889Y?checkoutMode=10";
+const SCROLL_TARGET_ID = "seccion-recibes-hoy";
 
 const PURPLE = "#6C4FBF";
 const PURPLE_LIGHT_BG = "#F7F5FF";
@@ -40,24 +41,47 @@ const TEXT_SECONDARY = "#6B6B8A";
 const BORDER_LIGHT = "#E5E7EB";
 const BORDER_PURPLE_SOFT = "#E0D9F5";
 
-function CtaButton({ children, large = false }: { children: React.ReactNode; large?: boolean }) {
+function CtaButton({
+  children,
+  large = false,
+  scrollTo,
+}: {
+  children: React.ReactNode;
+  large?: boolean;
+  scrollTo?: string;
+}) {
+  const commonStyle: React.CSSProperties = {
+    display: "inline-block",
+    backgroundColor: PURPLE,
+    color: "#fff",
+    fontWeight: 600,
+    fontSize: large ? 18 : 16,
+    padding: large ? "18px 32px" : "14px 26px",
+    borderRadius: 12,
+    textDecoration: "none",
+    boxShadow: "0 4px 14px rgba(108,79,191,0.25)",
+    border: "none",
+    cursor: "pointer",
+    fontFamily: "inherit",
+  };
+
+  if (scrollTo) {
+    return (
+      <button
+        type="button"
+        onClick={() => {
+          const el = document.getElementById(scrollTo);
+          if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }}
+        style={commonStyle}
+      >
+        {children}
+      </button>
+    );
+  }
+
   return (
-    <a
-      href={CHECKOUT_URL}
-      target="_blank"
-      rel="noopener noreferrer"
-      style={{
-        display: "inline-block",
-        backgroundColor: PURPLE,
-        color: "#fff",
-        fontWeight: 600,
-        fontSize: large ? 18 : 16,
-        padding: large ? "18px 32px" : "14px 26px",
-        borderRadius: 12,
-        textDecoration: "none",
-        boxShadow: "0 4px 14px rgba(108,79,191,0.25)",
-      }}
-    >
+    <a href={CHECKOUT_URL} target="_blank" rel="noopener noreferrer" style={commonStyle}>
       {children}
     </a>
   );
@@ -208,16 +232,13 @@ function Landing() {
 
         .bi-hero-grid { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px; }
         .bi-hero-left { display: flex; flex-direction: column; align-items: center; }
-        .bi-hero-right { display: none; justify-content: center; align-items: center; }
-        .mockup-principal { width: 100%; max-width: 280px; height: auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(108,79,191,0.18); display: block; }
-        .bi-hero-mobile-mockup { display: block; margin: 8px auto 16px; }
+        .bi-hero-right { display: flex; justify-content: center; align-items: center; }
+        .mockup-principal { width: 100%; max-width: 320px; height: auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(108,79,191,0.18); display: block; }
         @media (min-width: 768px) {
           .bi-hero-grid { display: grid; grid-template-columns: 60% 40%; align-items: center; text-align: left; gap: 32px; }
           .bi-hero-left { align-items: flex-start; text-align: left; }
           .bi-hero-left .bi-h1 { text-align: left; }
-          .bi-hero-right { display: flex; }
-          .mockup-principal { max-width: 320px; }
-          .bi-hero-mobile-mockup { display: none; }
+          .mockup-principal { max-width: 380px; }
         }
 
         .bi-bono-card { display: flex; flex-direction: row; align-items: center; text-align: left; gap: 16px; }
@@ -273,9 +294,12 @@ function Landing() {
                 alt="Mockup de la Guía Brújula Interior"
                 className="mockup-principal bi-hero-mobile-mockup my-0 mx-0 px-0 py-0"
                 id="mockup-principal-hero-mobile"
+                style={{ display: "none" }}
               />
               <div>
-                <CtaButton large>Quiero mi guía por $9.97 →</CtaButton>
+                <CtaButton large scrollTo={SCROLL_TARGET_ID}>
+                  Quiero mi guía por $9.97 →
+                </CtaButton>
                 <TrustLine />
               </div>
             </div>
@@ -349,7 +373,7 @@ function Landing() {
       </section>
 
       {/* SECCIÓN 3 — Value Stack */}
-      <section style={{ backgroundColor: "#fff" }} className="bi-section">
+      <section id={SCROLL_TARGET_ID} style={{ backgroundColor: "#fff" }} className="bi-section">
         <div className="bi-container" style={{ maxWidth: 760 }}>
           <h2 className="bi-h2">Todo lo que recibes hoy</h2>
           <p
