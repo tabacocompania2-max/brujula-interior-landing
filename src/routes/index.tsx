@@ -232,16 +232,13 @@ function Landing() {
 
         .bi-hero-grid { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px; }
         .bi-hero-left { display: flex; flex-direction: column; align-items: center; }
-        .bi-hero-right { display: none; justify-content: center; align-items: center; }
-        .mockup-principal { width: 100%; max-width: 280px; height: auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(108,79,191,0.18); display: block; }
-        .bi-hero-mobile-mockup { display: block; margin: 8px auto 16px; }
+        .bi-hero-right { display: flex; justify-content: center; align-items: center; }
+        .mockup-principal { width: 100%; max-width: 320px; height: auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(108,79,191,0.18); display: block; }
         @media (min-width: 768px) {
           .bi-hero-grid { display: grid; grid-template-columns: 60% 40%; align-items: center; text-align: left; gap: 32px; }
           .bi-hero-left { align-items: flex-start; text-align: left; }
           .bi-hero-left .bi-h1 { text-align: left; }
-          .bi-hero-right { display: flex; }
-          .mockup-principal { max-width: 320px; }
-          .bi-hero-mobile-mockup { display: none; }
+          .mockup-principal { max-width: 380px; }
         }
 
         .bi-bono-card { display: flex; flex-direction: row; align-items: center; text-align: left; gap: 16px; }
