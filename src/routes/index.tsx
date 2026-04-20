@@ -164,7 +164,6 @@ const stackBonos = [
   { src: "https://placehold.co/200x260/5B21B6/EDE9FF?text=Bono+1", alt: "Bono 1", rotate: 2 },
   { src: "https://placehold.co/200x260/4C1D95/EDE9FF?text=Bono+2", alt: "Bono 2", rotate: -2 },
   { src: "https://placehold.co/200x260/7C3AED/EDE9FF?text=Bono+3", alt: "Bono 3", rotate: 1 },
-  { src: "/09f036df-dff4-4b10-82cf-579647758449.webp", alt: "Bono 4", rotate: -1 },
 ];
 
 const forYouItems = [
