@@ -599,6 +599,51 @@ function Landing() {
         </div>
       </section>
 
+      {/* SECCIÓN 8.5 — Lo que recibes (mockup completo) */}
+      <section style={{ backgroundColor: PURPLE_BADGE_BG, padding: "48px 24px" }}>
+        <div className="bi-container" style={{ maxWidth: 980 }}>
+          <h2 className="bi-h2">Todo esto es tuyo hoy por solo $9.97</h2>
+          <div className="bi-recibes-grid" style={{ marginTop: 32 }}>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <img
+                src={BIG_MOCKUP}
+                alt="Mockup grande de la Guía Brújula Interior"
+                id="mockup-principal-grande"
+                className="mockup-principal"
+                style={{ maxWidth: 280 }}
+              />
+            </div>
+            <div className="bi-stack-bonos" id="stack-bonos">
+              {stackBonos.map((b, i) => (
+                <img
+                  key={i}
+                  src={b.src}
+                  alt={`Mockup del ${b.alt}`}
+                  className={`bono-stack-${i + 1}-img`}
+                  style={{ transform: `rotate(${b.rotate}deg)`, zIndex: i + 1 }}
+                  loading="lazy"
+                />
+              ))}
+            </div>
+          </div>
+          <p
+            style={{
+              textAlign: "center",
+              fontWeight: 700,
+              fontSize: 18,
+              color: PURPLE,
+              margin: "32px 0 20px",
+            }}
+          >
+            Valor total: $34.97 — tú pagas solo $9.97
+          </p>
+          <div style={{ textAlign: "center" }}>
+            <CtaButton large>Quiero todo esto por $9.97 →</CtaButton>
+            <TrustLine />
+          </div>
+        </div>
+      </section>
+
       {/* SECCIÓN 9 — CTA Final */}
       <section style={{ backgroundColor: PURPLE, padding: "48px 24px", textAlign: "center" }}>
         <div style={{ maxWidth: 640, margin: "0 auto" }}>
