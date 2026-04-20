@@ -373,7 +373,7 @@ function Landing() {
       </section>
 
       {/* SECCIÓN 3 — Value Stack */}
-      <section style={{ backgroundColor: "#fff" }} className="bi-section">
+      <section id={SCROLL_TARGET_ID} style={{ backgroundColor: "#fff" }} className="bi-section">
         <div className="bi-container" style={{ maxWidth: 760 }}>
           <h2 className="bi-h2">Todo lo que recibes hoy</h2>
           <p
