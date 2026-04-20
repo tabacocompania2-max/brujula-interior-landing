@@ -205,38 +205,91 @@ function Landing() {
         .bi-faq-btn { width: 100%; text-align: left; background: #fff; border: 1px solid ${BORDER_PURPLE_SOFT}; border-radius: 12px; padding: 18px 20px; font-size: 16px; font-weight: 600; color: ${TEXT_PRIMARY}; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; font-family: inherit; }
         .bi-faq-btn:hover { border-color: ${PURPLE}; }
         .bi-faq-answer { padding: 0 20px 18px; font-size: 15px; color: ${TEXT_SECONDARY}; }
+
+        .bi-hero-grid { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px; }
+        .bi-hero-left { display: flex; flex-direction: column; align-items: center; }
+        .bi-hero-right { display: none; justify-content: center; align-items: center; }
+        .mockup-principal { width: 100%; max-width: 280px; height: auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(108,79,191,0.18); display: block; }
+        .bi-hero-mobile-mockup { display: block; margin: 8px auto 16px; }
+        @media (min-width: 768px) {
+          .bi-hero-grid { display: grid; grid-template-columns: 60% 40%; align-items: center; text-align: left; gap: 32px; }
+          .bi-hero-left { align-items: flex-start; text-align: left; }
+          .bi-hero-left .bi-h1 { text-align: left; }
+          .bi-hero-right { display: flex; }
+          .mockup-principal { max-width: 320px; }
+          .bi-hero-mobile-mockup { display: none; }
+        }
+
+        .bi-bono-card { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; }
+        .bi-bono-img { width: 80px; height: 100px; border-radius: 8px; object-fit: cover; flex-shrink: 0; }
+        .bi-bono-body { width: 100%; }
+        .bi-bono-card .bi-value { display: inline-block; margin-top: 6px; }
+        @media (min-width: 768px) {
+          .bi-bono-card { flex-direction: row; align-items: center; text-align: left; }
+          .bi-bono-body { flex: 1; min-width: 0; }
+          .bi-bono-card .bi-value { margin-top: 0; margin-left: auto; padding-left: 12px; }
+        }
+
+        .bi-recibes-grid { display: flex; flex-direction: column; gap: 32px; align-items: center; }
+        .bi-stack-bonos { position: relative; width: 240px; height: 300px; margin: 0 auto; }
+        .bi-stack-bonos img { position: absolute; top: 50%; left: 50%; width: 180px; height: 234px; margin-left: -90px; margin-top: -117px; border-radius: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); object-fit: cover; }
+        @media (min-width: 768px) {
+          .bi-recibes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+          .bi-stack-bonos { width: 280px; height: 340px; }
+          .bi-stack-bonos img { width: 200px; height: 260px; margin-left: -100px; margin-top: -130px; }
+        }
       `}</style>
 
       {/* SECCIÓN 1 — Hero */}
       <section style={{ backgroundColor: "#fff" }} className="bi-section">
-        <div className="bi-container" style={{ textAlign: "center", maxWidth: 720 }}>
-          <span
-            style={{
-              display: "inline-block",
-              backgroundColor: PURPLE_BADGE_BG,
-              color: PURPLE,
-              fontSize: 13,
-              fontWeight: 500,
-              padding: "6px 14px",
-              borderRadius: 20,
-            }}
-          >
-            Método Brújula Interior
-          </span>
-          <h1 className="bi-h1">¿Sientes que te perdiste a ti misma en el camino?</h1>
-          <p
-            style={{
-              fontSize: 18,
-              color: TEXT_SECONDARY,
-              maxWidth: 520,
-              margin: "0 auto 32px",
-            }}
-          >
-            Brújula Interior es el proceso personalizado que te ayuda a entender tus patrones
-            emocionales, soltar lo que ya no te sirve y encontrar el camino de regreso a ti misma.
-          </p>
-          <CtaButton large>Quiero mi guía por $9.97 →</CtaButton>
-          <TrustLine />
+        <div className="bi-container">
+          <div className="bi-hero-grid">
+            <div className="bi-hero-left">
+              <span
+                style={{
+                  display: "inline-block",
+                  backgroundColor: PURPLE_BADGE_BG,
+                  color: PURPLE,
+                  fontSize: 13,
+                  fontWeight: 500,
+                  padding: "6px 14px",
+                  borderRadius: 20,
+                }}
+              >
+                Método Brújula Interior
+              </span>
+              <h1 className="bi-h1">¿Sientes que te perdiste a ti misma en el camino?</h1>
+              <p
+                style={{
+                  fontSize: 18,
+                  color: TEXT_SECONDARY,
+                  maxWidth: 520,
+                  margin: "0 0 16px",
+                }}
+              >
+                Brújula Interior es el proceso personalizado que te ayuda a entender tus patrones
+                emocionales, soltar lo que ya no te sirve y encontrar el camino de regreso a ti misma.
+              </p>
+              <img
+                src={HERO_MOCKUP}
+                alt="Mockup de la Guía Brújula Interior"
+                className="mockup-principal bi-hero-mobile-mockup"
+                id="mockup-principal-hero-mobile"
+              />
+              <div>
+                <CtaButton large>Quiero mi guía por $9.97 →</CtaButton>
+                <TrustLine />
+              </div>
+            </div>
+            <div className="bi-hero-right">
+              <img
+                src={HERO_MOCKUP}
+                alt="Mockup de la Guía Brújula Interior"
+                className="mockup-principal"
+                id="mockup-principal-hero"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
