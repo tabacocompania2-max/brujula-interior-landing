@@ -30,7 +30,8 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-const CHECKOUT_URL = "https://pay.hotmart.com/REEMPLAZAR";
+const CHECKOUT_URL = "https://pay.hotmart.com/J105261889Y?checkoutMode=10";
+const SCROLL_TARGET_ID = "seccion-recibes-hoy";
 
 const PURPLE = "#6C4FBF";
 const PURPLE_LIGHT_BG = "#F7F5FF";
@@ -40,24 +41,47 @@ const TEXT_SECONDARY = "#6B6B8A";
 const BORDER_LIGHT = "#E5E7EB";
 const BORDER_PURPLE_SOFT = "#E0D9F5";
 
-function CtaButton({ children, large = false }: { children: React.ReactNode; large?: boolean }) {
+function CtaButton({
+  children,
+  large = false,
+  scrollTo,
+}: {
+  children: React.ReactNode;
+  large?: boolean;
+  scrollTo?: string;
+}) {
+  const commonStyle: React.CSSProperties = {
+    display: "inline-block",
+    backgroundColor: PURPLE,
+    color: "#fff",
+    fontWeight: 600,
+    fontSize: large ? 18 : 16,
+    padding: large ? "18px 32px" : "14px 26px",
+    borderRadius: 12,
+    textDecoration: "none",
+    boxShadow: "0 4px 14px rgba(108,79,191,0.25)",
+    border: "none",
+    cursor: "pointer",
+    fontFamily: "inherit",
+  };
+
+  if (scrollTo) {
+    return (
+      <button
+        type="button"
+        onClick={() => {
+          const el = document.getElementById(scrollTo);
+          if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }}
+        style={commonStyle}
+      >
+        {children}
+      </button>
+    );
+  }
+
   return (
-    <a
-      href={CHECKOUT_URL}
-      target="_blank"
-      rel="noopener noreferrer"
-      style={{
-        display: "inline-block",
-        backgroundColor: PURPLE,
-        color: "#fff",
-        fontWeight: 600,
-        fontSize: large ? 18 : 16,
-        padding: large ? "18px 32px" : "14px 26px",
-        borderRadius: 12,
-        textDecoration: "none",
-        boxShadow: "0 4px 14px rgba(108,79,191,0.25)",
-      }}
-    >
+    <a href={CHECKOUT_URL} target="_blank" rel="noopener noreferrer" style={commonStyle}>
       {children}
     </a>
   );
