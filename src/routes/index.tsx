@@ -273,7 +273,7 @@ function Landing() {
               <img
                 src={HERO_MOCKUP}
                 alt="Mockup de la Guía Brújula Interior"
-                className="mockup-principal bi-hero-mobile-mockup"
+                className="mockup-principal bi-hero-mobile-mockup my-0 mx-0 px-0 py-0"
                 id="mockup-principal-hero-mobile"
               />
               <div>
