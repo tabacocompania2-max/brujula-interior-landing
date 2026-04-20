@@ -294,9 +294,12 @@ function Landing() {
                 alt="Mockup de la Guía Brújula Interior"
                 className="mockup-principal bi-hero-mobile-mockup my-0 mx-0 px-0 py-0"
                 id="mockup-principal-hero-mobile"
+                style={{ display: "none" }}
               />
               <div>
-                <CtaButton large>Quiero mi guía por $9.97 →</CtaButton>
+                <CtaButton large scrollTo={SCROLL_TARGET_ID}>
+                  Quiero mi guía por $9.97 →
+                </CtaButton>
                 <TrustLine />
               </div>
             </div>
