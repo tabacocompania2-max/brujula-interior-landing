@@ -90,12 +90,12 @@ const faqs = [
   },
 ];
 
-const HERO_MOCKUP = "https://placehold.co/300x400/6C4FBF/EDE9FF?text=Brújula+Interior";
-const BIG_MOCKUP = "https://placehold.co/280x360/6C4FBF/EDE9FF?text=Brújula+Interior";
+const HERO_MOCKUP = "/9eafb6e1-e681-4e88-af3e-409de452333f.webp";
+const BIG_MOCKUP = "/fc9b6b24-0bd3-4cff-82e8-f111a484ae2b.webp";
 
 const valueItems = [
   {
-    img: "https://placehold.co/80x100/6C4FBF/EDE9FF?text=Guía",
+    img: "/87890a83-4715-4ef8-b41c-d480cde8923f.webp",
     imgClass: "guia-principal-img",
     alt: "Portada de la Guía Brújula Interior",
     name: "Guía Brújula Interior",
@@ -103,7 +103,7 @@ const valueItems = [
     value: "$14.97",
   },
   {
-    img: "https://placehold.co/80x100/5B21B6/EDE9FF?text=Bono+1",
+    img: "/6cc83157-a060-4ef5-9ce0-bf2e58850b92.webp",
     imgClass: "bono-1-img",
     alt: "Portada del Bono 1: Diario de los 21 días",
     name: "BONO 1: Diario de los 21 días",
@@ -111,7 +111,7 @@ const valueItems = [
     value: "$5",
   },
   {
-    img: "https://placehold.co/80x100/4C1D95/EDE9FF?text=Bono+2",
+    img: "/941c6fdf-dff3-40b8-8de9-b75b75569026.webp",
     imgClass: "bono-2-img",
     alt: "Portada del Bono 2: Mapa de mis patrones",
     name: "BONO 2: Mapa de mis patrones",
@@ -119,7 +119,7 @@ const valueItems = [
     value: "$5",
   },
   {
-    img: "https://placehold.co/80x100/7C3AED/EDE9FF?text=Bono+3",
+    img: "/237e28f9-3600-4894-8e91-af5880ff1df8.webp",
     imgClass: "bono-3-img",
     alt: "Portada del Bono 3: El Diálogo Interno",
     name: "BONO 3: El Diálogo Interno",
@@ -127,7 +127,7 @@ const valueItems = [
     value: "$5",
   },
   {
-    img: "https://placehold.co/80x100/8B5CF6/EDE9FF?text=Bono+4",
+    img: "/b2065864-0246-4b22-adf8-e01313bf932a.webp",
     imgClass: "bono-4-img",
     alt: "Portada del Bono 4: Tu Primera Semana",
     name: "BONO 4: Tu Primera Semana",
@@ -140,7 +140,7 @@ const stackBonos = [
   { src: "https://placehold.co/200x260/5B21B6/EDE9FF?text=Bono+1", alt: "Bono 1", rotate: 2 },
   { src: "https://placehold.co/200x260/4C1D95/EDE9FF?text=Bono+2", alt: "Bono 2", rotate: -2 },
   { src: "https://placehold.co/200x260/7C3AED/EDE9FF?text=Bono+3", alt: "Bono 3", rotate: 1 },
-  { src: "https://placehold.co/200x260/8B5CF6/EDE9FF?text=Bono+4", alt: "Bono 4", rotate: -1 },
+  { src: "/09f036df-dff4-4b10-82cf-579647758449.webp", alt: "Bono 4", rotate: -1 },
 ];
 
 const forYouItems = [
