@@ -375,16 +375,31 @@ function Landing() {
                   borderRadius: 12,
                   padding: "16px 20px",
                 }}
-                className="bi-card-row"
+                className="bi-bono-card"
               >
-                <span className="bi-icon">{item.icon}</span>
-                <div style={{ flex: 1, minWidth: 0 }}>
+                <img
+                  src={item.img}
+                  alt={item.alt}
+                  className={`bi-bono-img ${item.imgClass}`}
+                  loading="lazy"
+                />
+                <div className="bi-bono-body">
                   <div style={{ fontWeight: 700, fontSize: 15 }}>{item.name}</div>
                   <div style={{ fontSize: 14, color: TEXT_SECONDARY, marginTop: 2 }}>
                     {item.desc}
                   </div>
                 </div>
-                <span className="bi-value">{item.value}</span>
+                <span
+                  style={{
+                    fontSize: 14,
+                    color: TEXT_SECONDARY,
+                    textDecoration: "line-through",
+                    flexShrink: 0,
+                  }}
+                  className="bi-value"
+                >
+                  {item.value}
+                </span>
               </div>
             ))}
           </div>
